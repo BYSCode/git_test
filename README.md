@@ -1,3 +1,3 @@
 # git_test
-"Hello Odin!"
+"Hello Odin!" /n
 "Oh, and welcome Loki as well!"
