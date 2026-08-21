@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>margin collapsing</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Exercise 7 on Margin Collapsing</h1>
+        <h2>Exercise from the following <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model"
+            alt="exercise on margin collapsing" rel="noreferral">link</a>
+        </h2>
+        <p>Depending on whether two elements whose margins touch have positive or negative margins, the results will be different:
+Two positive margins will combine to become one margin. Its size will be equal to the largest individual margin.
+Two negative margins will collapse and the smallest (furthest from zero) value will be used.
+If one margin is negative, its value will be subtracted from the total.
+In the example below, we have two paragraphs. The top paragraph has a margin-bottom of 50 pixels, the other has a margin-top of 30 pixels. The margins have collapsed together so the actual margin between the boxes is 50 pixels and not the total of the two margins.
+You can test this by setting the margin-top of paragraph two to 0. The visible margin between the two paragraphs will not change — it retains the 50 pixels set in the margin-bottom of paragraph one. If you set it to -10px, you'll see that the overall margin becomes 40px — it subtracts from the 50px.</p>
+        <div class="container">
+            <p class="one">I am paragraph one.</p>
+            <p class="two">I am paragraph two.</p>
+        </div>
+        <p>A number of rules dictate when margins do and do not collapse. For further information see the detailed page on mastering margin collapsing. The main thing to remember is that margin collapsing is a thing that happens if you are creating space with margins and don't get the space you expect.</p>
+    </body>
+</html>
