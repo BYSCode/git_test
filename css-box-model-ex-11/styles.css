@@ -1,0 +1,18 @@
+h3 {
+    margin: 5em 5em 20px 0;
+    background-color:aqua;
+}
+
+p {
+   background-color: rgb(235, 235, 66); 
+   margin: 40px 5em 4em 0;
+}
+/* top, right, bottom, left*/
+
+div {
+    width: 480px;
+    margin: 0 auto;
+    background-color: rgb(168, 109, 109);
+}
+/* Element has a given specified width, left and right 
+margins are set to auto.*/
