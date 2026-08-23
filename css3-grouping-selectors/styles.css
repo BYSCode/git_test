@@ -12,3 +12,9 @@
     font-family: Helvetica, "Times New Roman", sans-serif;
 }
 /*Notice the "," between the classes to group them*/
+/*Beide Elemente der class=one und class=two haben font-size
+und font-family gemeinsam.*/
+
+h3, h4, .wichtig {
+   color: rgb(199, 159, 159); 
+}
