@@ -22,27 +22,19 @@ body {
 }
 
 /*NICHT ALLES TRÄGT ZU SPECIFITY HINZU*/
-.klasse1 {
-  font-size: 10px;
-}
-
-.klasse2 {
-  font-size: 20px;
-}
-
-/*Regel 1*/
+/*Regel 1 - Chaining Kombinator*/
 .klasse1.klasse2 {
-  font-size: 60px;
+  color: red;
 }
 
-/*Regel 2*/
+/*Regel 2 - Descendant Kombinator*/
 .klasse1 .klasse2 {
-  font-size: 50px;
+  color: yellow;
 }
 
 /*Regel 3*/
 .klasse1 > .klasse2 {
-  font-size: 40px;
+  color: blue;
 }
 
 

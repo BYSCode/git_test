@@ -99,40 +99,37 @@
       auf spezielle Symbole für den Universal selector (*)
       sowie weitere combinators (+, ~, >, und Leerschlag). Jene
       die noch nicht vorkamen, werden wir später behandeln. Das
-      Kernkonzept ist, dass diese symbole keine zusätziche
+      Kernkonzept ist, dass diese Symbole keine zusätziche
       Spezifität vererben.
     </p>
-    <div class="klasse1">
-      Klasse 1
-    </div>
-    <div class="klasse2">
-      Klasse 2
-    </div>
     <div class="klasse1 klasse2">
-      Klasse1 und Klasse2
+      Beispiel 1: Nur Elemente die Klasse1 und Klasse2 haben sind rot.
     </div>
     <div class="klasse2 klasse1">
-      Klasse2 und Klasse1
+      Beispiel 2: Klasse2 und Klasse1 (Bsp 1 getauscht)
     </div>
-    <div class="klasse1>
-      <div class="klasse2>
-        Klasse 1 steht über Klasse 2
+    <div class="klasse1">
+      <div class="klasse2">
+        Beispiel 3: Klasse 1 (Eltern) steht über Klasse 2 (Kind), weil alle Klasse 2-Elemente
+        innerhalb Klasse 1 erfasst werden müsste dieser 
+        Passus eigentlich gelb sein (?).
       </div>
     <div class="klasse2">
       <div class="klasse1">
-        Klasse 2 steht über Klasse 1
+        Beispiel 4: Klasse 2 (Eltern) steht über Klasse 1 (Kind)
       </div>
     </div>
     </div>
     <p class="normal">
-      Beide Regeln (klasse1 und 2) haben die gleiches Spezifität.
+      Beide Regeln (klasse1 und 2) haben die gleiche Spezifität.
       Regel 1 verwendet ein chaining-selector (kein Leerschlag) und
-      Regel 2 einen descendant-selector (Leerschlag). Beide Regeln
+      Regel 2 einen descendant-selector (Leerschlag, d.h. alle Klasse2-Elemente
+      innerhalb Klasse1-Elemente werden erfasst). Beide Regeln
       haben zwei Klassen und das Kombinator Symbol selber trägt nicht
       zur Spezfifität bei.
     </p>
     <p class ="normal">
-      Am Ergebnis änder nichts, obwohl Regel 3 ein "Kind"-Kombinator
+      Am Ergebnis ändert nichts, obwohl Regel 3 ein "Kind"-Kombinator
       (>) verwendet, weil das den Spezfizitätsgrad nicht ändert.
       Beide Regeln haben jeweils zwei Klassen und damit die gleiche
       Spezifität.
