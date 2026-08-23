@@ -8,6 +8,51 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <h1>DESCENDANT-COMBINATOR (Leerzeichen)</h1>
+    <p class="normal">
+      Der Descendant-Kombinator wählt Elemente aus, die <strong>
+      irgendwo verschachtelt innerhalb</strong>
+      eines anderen Elements liegen - egal auf welcher
+      Ebene (Kind, Enkel, Urenkel, etc.). Er wird eifach
+      durch ein Leerzeichen zwischen zwei Selektoren
+      ausgedrückt.
+    </p>
+    <p class="normal">
+      Ein Beispiel:
+    </p>
+    <div class="karte">
+      <p>
+        Direkt in der Karte
+      </p>
+      <ul>
+        <li>
+          <p>
+            Tiefer verschachtelt
+          </p>
+        </li>
+      </ul>
+    </div>
+    <p>
+      Ausserhalb der Karte
+    </p>
+    <p class="normal">
+      <strong>.karte p</strong> (mit <strong>Leerzeichen</strong>)
+      trifft auf <strong>jedes</strong> p, das sich irgendwo 
+      INNERHALB eines Elements MIT KLASSE "karte" befindet - egal
+      wie tief. Im Beispiel werden also beide inneren Absätze grün:
+      sowohl der direkte Nachfahre als auch der p innerhalb von "li"
+      innerhalb von ul. Der letzte Absatz - p "Ausserhalb der Karte"
+      bleibt unverändert, weil er ausserhalb von <strong>.karte</strong>
+      liegt. 
+    </p>
+    <h1>MERKREGEL</h1>
+    <p class="normal">
+      <strong>A B</strong> (mit Leerzeichen) bedeutet: "style
+      jedes B, das <strong>irgendwo innerhalb</strong> von A liegt"
+      Die Reihenfolge ist wichtig: links steht der Vorfahre, rechts
+      der Nachfahre.
+    </p>
+    <p></p>
     <h1>Exercise 5 - Descendant Combinator</h1>
     <div class="container">
       <p class="text">This should be styled.</p>

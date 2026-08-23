@@ -1,3 +1,9 @@
+/*BEISPIEL*/
+.karte p {
+    color: green;
+}
+
+/*EXERCISE*/
 .container .text {
     color: red;
     background-color: yellow;
