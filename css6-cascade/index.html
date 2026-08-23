@@ -8,7 +8,140 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>Exercise 6 - Cascade-Fix></h1>
+    <h2>Specificity</h2>
+    <p class="normal">
+      Spezifische Deklarationen gehen weniger spezifischen
+      Deklarationen vor.</p>
+    <p class="normal">
+      Inline styles haben die höchste Spezifität aller
+      selectors, wobei jeder selector sein eigenes 
+      Spezifitätsniveau hat. Von den behandelten selector-Typen
+      hat der ID-Selector die höchste Spezifität:
+    </p>
+      <ol>
+        <li>ID selectors (most specific selector)</li>
+        <li>Class selectors</li>
+        <li>Type selectors</li>
+      </ol>
+    <p class="normal">
+      Specificity wird nur dann berücksichtigt,
+      wenn ein Element mehrere widersprechende Deklarationen hat
+      (wie ein tie-breaker).
+    </p>
+    <p class="normal"> 
+      An ID-selector schlägt immer jede Anzahl von class-selectors,
+      ein class-selector schlägt immer jede Anzahl von type-selectors
+      und ein type-selector schlägt immer jede Anzahl von
+      weniger spezifischen selectors.
+    </p>
+    <p class="normal">
+      Wenn die Spezifität keinen Gewinner bestimmt, vergleichen Sie die Anzahl der
+      selectors in derselben Kategorie (ID, class oder type 
+      selectors). Die Regel mit mehr selectors hat Vorrang.
+    </p>  
+      
+    </p>
+    <p class="normal">Let’s take a look at a few quick 
+      examples to visualize how specificity works. Consider 
+      the following HTML and CSS code:
+    </p>
+    <div class="main">
+      <div class="list" id="subsection">
+        Red text on yellow background
+      </div>
+    </div>
+    <p class="normal">
+      In the example above, both rules are using only class 
+      selectors, but rule 2 is more specific because it 
+      is using more class selectors, so the color: red 
+      declaration would take precedence.
+    </p>
+    <p class="normal">
+      Now, let’s change things a little bit:
+    </p>
+    <div class="main">
+      <div class="list" id="subsection">
+        Blue text
+      </div>
+    </div>
+    <p class="normal">
+      <strong>Obwohl</strong> Regel 2 mehr class-selectors hat, wird die 
+      Farbe blau nicht angezeigt, da die ID-Selector-Regel 1 
+      spezifischer ist und daher Vorrang hat.
+    </p>
+    <p class="normal">
+      Jetzt noch etwas komplexer:
+    </p>
+    <div class="main">
+      <div class="list" id="subsection">
+        Red text on yellow background
+      </div>
+    <p class="normal">
+      Die erste Regel verwendet ein ID-selector (subsection), während die
+      zweite Regel ein ID-selector (subsection) mit einem class-selector (list) 
+      kombiniert. Beide Regeln verwenden spezifischere Selektoren
+      als die jeweils andere.
+    </p>
+    <p class="normal">
+      Die cascade prüft dann die Anzahl aller selector-Typen. Beide
+      Regeln haben nur einen Id-selector (subsection), aber Regel 2 hat zusätzlich
+      einen class-selector (list) und ist damit spezifischer.
+    </p>
+    <p class="normal">
+      Während die Farbe-Rot-Deklaration Vorrang hätte, wird
+      Hintergrund-Gelb immer noch angewendet, weil es kein
+      Konflikt gibt.
+    </p>
+
+    <h2>Nicht alles trägt zu Specifity hinzu</h2>
+    <p class="normal">
+      Beim Vergleichen von selectors, trifft man gelegentlich
+      auf spezielle Symbole für den Universal selector (*)
+      sowie weitere combinators (+, ~, >, und Leerschlag). Jene
+      die noch nicht vorkamen, werden wir später behandeln. Das
+      Kernkonzept ist, dass diese symbole keine zusätziche
+      Spezifität vererben.
+    </p>
+    <div class="klasse1">
+      Klasse 1
+    </div>
+    <div class="klasse2">
+      Klasse 2
+    </div>
+    <div class="klasse1 klasse2">
+      Klasse1 und Klasse2
+    </div>
+    <div class="klasse2 klasse1">
+      Klasse2 und Klasse1
+    </div>
+    <div class="klasse1>
+      <div class="klasse2>
+        Klasse 1 steht über Klasse 2
+      </div>
+    <div class="klasse2">
+      <div class="klasse1">
+        Klasse 2 steht über Klasse 1
+      </div>
+    </div>
+    </div>
+    <p class="normal">
+      Beide Regeln (klasse1 und 2) haben die gleiches Spezifität.
+      Regel 1 verwendet ein chaining-selector (kein Leerschlag) und
+      Regel 2 einen descendant-selector (Leerschlag). Beide Regeln
+      haben zwei Klassen und das Kombinator Symbol selber trägt nicht
+      zur Spezfifität bei.
+    </p>
+    <p class ="normal">
+      Am Ergebnis änder nichts, obwohl Regel 3 ein "Kind"-Kombinator
+      (>) verwendet, weil das den Spezfizitätsgrad nicht ändert.
+      Beide Regeln haben jeweils zwei Klassen und damit die gleiches
+      Spezifität.
+    </p>
+
+   
+
+    <h1>Exercise 1</h1>
+    </div>
     <p class="para">I'm just a paragraph with extra bold text!</p>
     <p class="para small-para">I'm a smaller paragraph, also with extra bold text!</p>
 

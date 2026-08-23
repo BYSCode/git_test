@@ -1,7 +1,53 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+/*SPECIFITY*/
+#subsection {
+  background-color: yellow;
+  color: blue;
+}
 
+.main #subsection {
+  color: red;
+}
+
+/*Regel 1*/
+#subsection {
+  color: blue;
+}
+
+/*Regel 2*/
+.main .list {
+  color: red;
+}
+
+/*NICHT ALLES TRÄGT ZU SPECIFITY HINZU*/
+.klasse1 {
+  font-size: 10px;
+}
+
+.klasse2 {
+  font-size: 20px;
+}
+
+/*Regel 1*/
+.klasse1.klasse2 {
+  font-size: 60px;
+}
+
+/*Regel 2*/
+.klasse1 .klasse2 {
+  font-size: 50px;
+}
+
+/*Regel 3*/
+.klasse1 > .klasse2 {
+  font-size: 40px;
+}
+
+
+
+/* EXERCISE 6*/
 /* two classes separated by "," are grouped selectors*/
 /* both classes share these commonalities*/
 .para,
@@ -14,8 +60,8 @@ body {
   font-size: 14px;
   font-weight: 800;
 }
-/*In the solution, this section above is completely deleted. However,
-when I did this, it didn't work anymore.*/
+/*In the solution, this section above is completely deleted. 
+However, when I did this, it didn't work anymore.*/
 
 .para {
   font-size: 22px;
