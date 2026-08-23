@@ -1,3 +1,13 @@
+/*Beispiele*/
+p.wichtig.warnung {
+    background-color: yellow;
+}
+
+
+
+
+/*EXERCISE*/
+
 .avatar.proportioned {
     width: 300px;
     height: auto;

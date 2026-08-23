@@ -8,6 +8,39 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <h1>Chaining Selector (keine Trennung, direkt aneinander)</h1>
+    <p class="normal">
+      Chaining verkettet mehrere selectors ohne Trennzeichen, direkt
+      hintereinander. Damit werden <strong>alle Bedingungen 
+      gleichzeitig auf ein und dasselbe Element</strong> angewendet.
+      Ein Element muss ALLE Bedingungen erfüllen, damit die Regel
+      greift.
+    </p>
+    <p class="normal">
+      Ein Beispiel:
+    </p>
+    <p class="wichtig">
+      NUR KLASSE WICHTIG!
+    </p>
+    <p class="wichtig warnung">
+      KLASSE wichtig UND KLASSE warnung!!
+    </p>
+    <p class="normal">
+      p.wichtig.warnung trifft nur auf ein p-Element zu, das
+      <strong>gleichzeitig</strong> die Klasse "wichtig" UND
+      die Klasse "warnung" trägt. Im Beispiel oben erhält also
+      nur der zweite Absatz den gelben Hintergrund - der erste
+      hat nur eine der beiden Klassen und erfüllt damit nicht
+      alle Bedingungen.
+    </p>
+    <h1>MERKREGEL - häufigste Fehlerquelle</h1>
+    <p class="normal">
+      A.B (ohne Leerzeichen) bedeutet: "<strong>ein</strong>
+      Element, das <strong>gleichzeitig</strong> A und B ist".
+      Ein Leerzeichen zwischen A und B (A .B) änder die Bedeutung
+      komplett (s. descendant-combinator)
+    </p>
+    <h1>EXERCISE</h1>
     <!-- Use the classes BELOW this line -->
     <div>
       <img class="avatar proportioned" src="./img/picone.jpg" 
