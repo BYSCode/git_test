@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cascade Übersicht</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Dile CSS Cascade</h1>
+        <h2>Was bedeutet "cascade"</h2>
+        <p class="normal">
+            Für ein und dasselbe html-Element können mehrere CSS-Regeln
+            gleichzeitig zutreffen - und sich sogar widersprechen. Die <strong>
+            cascade</strong> (Kaskade) ist der Algorithmus, mit dem der Browser
+            entscheidet, welche Regel am Ende gewinnt. Er prüft, dabei nacheinander
+            drei (3) Kriterien in dieser Reihenfolge:
+            <ol>
+                <li>Herkunft UND Wichtigkeit - woher stammt die Regel? gibt es !important?</li>
+                <li>Spezifität - wie "genau zielt der Selektor</li>
+                <li>Reihenfolge - welche Regel steht später im Code</li>
+            </ol>
+        </p>
+        <p>
+            Der Browser geht diese 3 Kritereien <strong>der Reihe nach</strong>
+             durch: Erst wenn zwei Regeln bei Kriterium 1 gleichauf sind, entscheidet
+            Kriterium 2. Erst wenn auch das gleich ist, entscheidet Kriterium 3.
+        </p>
+        <h2>Kriterium 1 - Herkunft UND Wichtigkeit</h2>
+        <p>
+            CSS-Regeln können aus unterschiedlichen Quellen stammen. Vereinfacht,
+            von <strong>niedrigster</strong> zu <strong>höchster</strong> Priorität:
+            <ol>
+                <li>Browser Standardliste - z.b. Standardabstand bei p</li>
+                <li>Deine CSS-Regeln - dein styles.css</li>
+                <li>Inline-Style im html</li>style="..." direkt im Tag</li>
+                <li>!important in deinem CSS - bricht die normale Reihenfolge</li>
+            </ol>
+        <p style="color: blue;">
+            TEXTBEISPIEL
+        </p>
+        <p>
+            Obwohl <strong>p</strong> als Selektor existiert, gewinnt
+            hier <strong>blue</strong>: Ein Inline-Style (style=) steht
+            in der Herkunfts-Hierarchie über einer externen oder internen
+            CSS-Regel. !importang würde diese Regel sogar noch übertrumpfen
+            - sollte aber sparsam eingesetzt werden, da es das Debuggen später
+            erschwert.
+        </p>
+        <p>
+            <strong>MERKREGEL:</strong> Bevor Spezifität überhaupt eine
+            Rolle spielt, zählt zuerst die <strong>Herkunft</strong>: Inline-Styles
+            schlagen normales CSS, und !important schlägt fast alles - benutze
+            es nur im Notfall.
+        </p>
+        <h2>Kriterium 2: Spezifität (Specifity)</h2>
+        <p>
+            Stammen zwei widersprüchliche Regeln aus derselben Herkunftsebene,
+            entscheidet die <strong>Spezifität</strong>: Wie "genau" oder "speziell"
+            zielt ein Selektor auf ein Element? Jeder Selektor-Bestandteil zählt
+            Punkte in 4 Kategorien:
+            <ul>
+                <li>Inline-Style - style="..." - Gewicht 1000</li>
+                <li>ID - "#intro - Gewicht 100</li>
+                <li>Klasse, Attribut, Pseudoklasse - .karte  [type]  :hover  - Gewicht: 10</li>
+                <li>Typ(Tag), Pseudo-Element - p  ::before  - Gewicht: 1</li>
+            </ul>
+            Man zählt für einen Selektor, wie oft jede Kategorie vorkommt, und addiert
+            die Gewichte. Ein Universalselektor * zählt 0 Punkte. Wichtig: Diese Werte
+            werden <strong>nicht wie "10er" verrechnet</strong> (10 Klassen ergeben nie
+            eine ID) - man vergleicht die Kategorien in Wirklichkeit von links nach rechts.
+            Für den Einstieg reicht aber die einfache Addition völlig aus.
+        </p>
+        <p>
+            <strong>Beispiel - drei Regeln, ein Element:</strong>
+        </p>
+        <p id="lead" class="text">
+            HALLO TEXTBEISPIEL 2
+        </p>
+        <p>
+            Alle 3 Regeln treffen auf denselben p zu. Es gewinnt <strong>
+            #lead</strong> mit Spezifität 100 - der Text wird <strong>grün</strong>, 
+            unabhängig davon, in welcher Reihenfolge die Regeln im Stylesheet stehen.
+        </p>
+        <p>
+            <strong>MERKREGEL:</strong> Je spezifischer der Selektor, desto höher seine
+            Priorität: ID schlägt Klasse, Klasse schlägt Tag-Name. Deshalb wirken IDs
+            oft wie ein "Vorschlaghammer" - viele Entwickler verzichten bewusst auf 
+            ID-Selektoren und arbeiten fast nur mit Klassen.
+        </p>
+        <h2>Kriterium 3: Reihenfolge im Code</h2>
+        <p>
+            Erst wenn Herkunft UND Spezifität exakt gleich sind, entscheidet die schlichte
+            Position im Stylesheet: Die <strong>später</strong> definierte Regel gewinnt.
+        </p>
+        <p class="text">
+            Hallo BEISPIELTEXT 3
+        </p>
+        <p>
+            Beide Regeln haben identische Selektoren und damit identische Spezifität (10).
+            Da die zweite Regel weiter unten im Stylesheet steht, gewinnt sie: Der Text wird
+            <strong>purple</strong>. Diese Regel gilt genauso für zwei verschiedene, gleich 
+            spezifische Selektoren wie auch für zwei importierte Stylesheets - die zuletzt geladene
+            bzw. zuletzt geschriebene Regel gewinnt.
+        </p>
+        <p>
+            <strong>MERKREGEL:</strong> Reihenfolge ist der letzte Tiebreaker - 
+            er greift nur, wenn Herkunft und Spezifität keine Entscheidung bringen.
+            Praktisch bedeutet das: allgemeine Regeln zuerst schreiben, spezifischere
+            Anpassungen weiter unten im Stylesheet.
+        </p>
+        <h2>Wiederholung: Grouping, Chaining, Descendant</h2>
+        <p>
+            Diese 3 Selektor-Techniken bestimmen mit, <strong>wie hoch</strong>
+            die Spezifität einer Regel ausfällt, weil sie die Zahl der gezählten
+            Klassen/Typen verändern.
+            <ul>
+                <li>
+                    A, B -- A oder B (zwei getrennte Regeln) -- Effekt auf Spezifität: jeder Teil
+                    zählt für sich allein
+                </li>
+                <li>A.B -- ein Element, das A und B zuglelich ist -- Gewichte von A und B werden addiert</li>
+                <li>A B -- B irgendwo innerhalb von A -- Gewichte von A und B werden addiert</li>
+            </ul>
+            Beispiel: <strong>.karte p.hinweis</strong> besteht aus Descendant (<strong>.karte</strong>
+            +Leerzeichen + <strong>p</strong>) plus Chaining (<strong>p.hinweis</strong>).
+            Spezifität: Klasse "karte" (10) + Typ p (1) + Klasse "hinweis (10) = <strong>21</strong>.
+        </p>
+        <h2>Alles Zusammen: ein durchgerechnetes Beispiel</h2>
+        <p>
+            Hier greifen alle Konzepte ineinander. Ziel: herausfinden, welche Farbe der zweite
+            Listeneintrag am Ende tatsächlich bekommt.
+        </p>
+        <div class="karte" id="box1">
+            <ul>
+                <li>
+                    Eintrag 1
+                </li>
+                <li class="wichtig aktiv">
+                    Eintrag 2
+                </li>
+            </ul>
+        </div>
+        <ul>
+            <li>li, p -- Grouping -- Spez.: 1</li>
+            <li>.karte li -- Descendant -- Spez: 11</li>
+            <li>li.wichtig.aktiv -- Chaining -- Spez: 21</li>
+            <li>#box1 li.wichtig -- Descendant + Chaining -- Spez.: 111 (WINNER)</li>
+        </ul>
+        <p>
+            Alle vier Regeln treffen auf li Eintrag 2 zu (es hat die Klassen "wichtig" und "aktiv",
+            liegt innerhalb von <strong>.karte</strong> bzw. <strong>#box1</strong>).
+            Da Herkunft bei allen gleich ist, entscheidet die <strong>höchste Spezifität: 
+            #box1 li.wichtig</strong> gewinnt mit 111 Punkten - der Text wird <strong>grün</strong>.
+            Die Reihenfolge im Stylesheet (Kriterium 3) hätte hier gar nicht mehr entscheiden müssen, weil
+            die Spezifität schon eindeutig war.
+        </p>
+        <p>
+            Der <strong>erste</strong> Listeneintrag "Eintrag 1" hat weder die Klassen
+            noch die passende Verschachtelung für die drei spezifischeren Regeln - auf ihn trifft
+            nur <strong>li, p</strong> zu (Grouping). Er bleibt daher <strong>black</strong>. 
+        </p>
+        <p>
+            <strong>TIPP fürs Nachbauen in HTML/CSS</strong>
+        </p>
+        <p>
+            Baue das Beispiel Schritt für Schritt nach: Schreibe zuerst nur die Grouping-Regel,
+            kontrolliere die Farbe im Browser, füge dann die Descendant-Regel hinzu, dann Chaining, 
+            dann die ID-Regel. So siehst du live, wie jede neue, spezifischere Regel die vorherige überschreibt
+            - und kannst mit den Browser-Entwicklungstools (Rechtsklick - Untersuchen/Inspect) direkt nachlesen, welche
+            Spezifität der Browser für jede Regel berechnet.
+        </p>
+    </body>
+</html>

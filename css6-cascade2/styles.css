@@ -1,0 +1,48 @@
+/*Textbeispiel 1*/
+p {
+    color: red;
+}
+
+/*Textbeispiel 2*/
+p {
+    color: black;
+}
+/*Spezifität: 1*/
+
+.text {
+    color: blue;
+}
+/*Spezifität: 10*/
+
+#lead {
+    color: green;
+}
+/*Spezifität: 100*/
+
+/*Textbeispiel 3*/
+.text {
+    color: blue;
+}
+/*Spezifität: 10*/
+
+.text {
+    color: purple;
+}
+/*Spezifität: 10*/
+
+/*GESAMTBEISPIEL*/
+li. p {
+    color: black; /*Spezifität: 1*/
+}
+
+.karte li {
+    color: blue; /*Spezifität 10 + 1 = 11*/
+}
+
+li.wichtig.aktiv {
+    color: orange; /*Spezifität: 1 + 10 + 10 = 21*/
+}
+
+#box1 li.wichtig {
+    color: green; /*Spezifität: 100 + 1 + 10 = 111*/
+}
