@@ -29,7 +29,21 @@
 }
 
 /*PLATZ FÜR NACHBAUÜBUNG*/
+.oben2 {
+    color: blue;
+    margin: 25px 0px;
+    padding: 20px;
+    background-color: rgb(161, 161, 221);
+    border: 5px solid black;
+}
 
+.unten2 {
+    color: green;
+    margin: 40px 50px;
+    padding: 20px;
+    background-color: rgb(150, 202, 150);
+    border: 5px solid black;
+}
 
 /*ENDE PLATZ für Nachbauübung*/
 
