@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>grouping, chaining und descendant combinator vereint</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Grouping, Chaining und Descendant Combinator vereint</h1>
+        <nav class="menu">
+            <a class="link aktiv">
+                Start
+            </a>
+            <a class="link">
+                Über uns
+            </a>
+        </nav>
+        <footer class="menu">
+            <a class="link aktiv">
+                Kontakt
+            </a>
+        </footer>
+
+        <p>
+            Lesart von links nach rechts: <strong>.menu a.link.aktiv</strong>
+            bedeutet - Descendant (<strong>.menu</strong> + Leerzeichen + <strong>a</strong>)
+            und Chaining (<strong>a.link.aktiv</strong>) kombiniert: "ein a-Element
+            mit den Klassen "link" und "aktiv", das irgendwo innerhalb
+            eines Elements mit Klasse "menu" liegt". Das Komma davor sorgt
+            dafür (Grouping), dass zusätzlich noch eine zweite, unabhängige
+            Bedingungen (hier: Hover-Zustand) dieselbe Formatierung erhält.
+        </p>
+        <h2>TIPP gegen Verwechslung im html-File</h2>
+        <p>
+            Schau in deinem HTML immer zuerst nach: Steht ein 
+            Attribut (z.B. class) am <strong>selben</strong> tag
+            - das ist die Basis für Chaining. Steht das gesuchte
+            Element <strong>zwischen</strong> den öffnenden und
+            schliessenden Tags eines anderen Elements - das ist die
+            Basis für den Descendant-Kombinator. Grouping erkennst du
+            im CSS selbst am Komma, unabhängig von der HTML-Struktur.
+        </p>
+    </body>
+</html>
