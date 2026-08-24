@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>css box model explained</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            .karte {
+                width: 200px;
+                background: #a9cdee;
+                padding: 20px;
+                border: 4px solid #1b2a4a;
+                margin: 30px
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Das CSS Box Model</h1>
+        <h2>Was ist das Box Model?</h2>
+        <p>
+            Der Browser behandelt <strong>jedes</strong> html-Element
+            als rechteckige Box - egal ob div, p oder img. Diese Box besteht
+            immer aus vier ineinander verschachtelten Schichten. Von innen nach aussen:
+            <ul>
+                <li>MARGIN - Aussenabstand-Freiraum ausserhalb des Elements zu anderen Elementen</li>
+                <li>BORDER - Rahmen, sichtbare Linie um Padding + Content</li>
+                <li>PADDING - Innenabstand - Freiraum zwischen Rahmen und Inhalt</li>
+                <li>CONTENT - Inhalt - Text, Bild oder andere Elemente</li>
+            </ul>
+            Die Reihenfolge ist immer gleich: Der <strong>Inhalt</strong> sitzt in der Mitte,
+            umgeben vom <strong>Padding</strong>, das wiederum vom <strong>Border</strong> eingerahmt wird,
+            und ganz aussen liegt der <strong>Margin</strong>, der Abstand zu benachbarten
+            Elementen schafft. Alle vier Schichten zusammen bestimmen, wie viel Platz ein Elementeauf der 
+            Seite tatsächlich beansprucht.
+        </p>
+        <h2>Die vier Schichten im CSS</h2>
+        <p>
+            Jede Schicht hat eigene CSS-Eigenschaften. Bei Padding, Border und Margin
+            kann man entweder alle vier Seiten einzeln ansprechen, oder eine <strong>Shorthand</strong>
+             (Kurzschreibweise) verwenden.
+        </p>
+        <div class="box">
+            BOX 1 - Inhalt
+        </div>
+        <p>
+            Die Shorthand-Reihenfolge merkt man sich im Uhrzeigersinn, beginnend
+            oben: padding: oben rechts unten links; (4 Werte). Bei 2 Werten gilt:
+            erster Wert = oben/unten, zweiter Wert = links/rechts. Bei nur 1 Wert gilt er
+            für alle 4 Seiten. Genau dieselbe Logik funktioniert auch für margin und <border-width.
+        </p>
+        <p>
+            <strong>Border braucht zusätzlich Stil und Farbe</strong>
+            .box {
+                border: 3px solid black 
+            }
+        </p>
+        <p>
+            <strong>MERKREGEL:</strong> padding schiebt den <strong>Inhalt</strong>
+            nach innen (Abstand innerhalb des Rahmens). margin schiebt <strong>andere
+            Elemente</strong> weg (Abstand ausserhalb des Rahmens). Diese Verwechslung ist die
+            häufigste Fehlerquelle für Anfänger.
+        </p>
+        <h2>NACHBAU ÜBUNG - eine einfache Karte</h2>
+        <p>Ergänze oben im head-Teil style-Anfang .karte {width: 200px, background #a9cdee,
+            padding 20px, border 4px solid #1b2a4a, margin 30px} style-Ende
+        </p>
+        <p>Ergänze im body div class="karte" Hallo Welt</p>
+        <p>Öffne die Entwicklertools (Rechtsklick - Untersuchen/Inspect) und klicke
+            auf das div. Im Reiter "Computed" bzw. "Layout" zeigt der Browser Genau
+            das Box-Model-Diagramm aus Kapitel 1 an - mit den tatsächlichen Pixelwerten 
+            deiner Karte.
+        </p>
+        <div class="karte">
+            HALLO Welt!!
+        </div>
+        <p>
+            <strong>EXPERIMENTIER-AUFGABE</strong>
+        </p>
+        <p>
+            Ändere das padding auf 60px - die Karte wird innen geräumiger, die Aussenmasse
+            wachsen mit. Ändere danach margin auf 0px - die Karte rückt an den Rand des 
+            Browserfensters. So spürst du direkt den Unterschied zwischen innerem und äusserem 
+            Abstand.
+        </p>
+        <h2><strong>box-sizing</strong>: Wo wird gerechnet?</h2>
+        <p>
+            Standardmässig (content-box) gelten width und height nur für den Inhalt/Content - Padding und Border
+            werden ZUSÄTZLICH addiert. Das führt oft zu Überraschungen, wenn man die Endgrösse einer Box planen will.
+        </p>
+        <div class="box2">
+            HALLO WELT 2!!
+        </div>
+        <p>
+            Mit dem Standard <strong>"content-box"</strong> ist die Box tatsächlich 200 + 20 + 20 + 5 + 5 = 250px breit 
+            - nicht 200px wie in css vorgegeben, weil width bei content-box eben nur den content beschreibt.
+        </p>
+        <p>
+            Mit dem box-sizing <strong>border-box</strong> rechnet der Browser
+            <strong>anders</strong>
+        </p>
+        <div class="box3">
+            HALLO WELT 3!!
+        </div>
+        <p>
+            Jetzt gilt width: 200px für <strong>Content + Padding + Border zusammen</strong>
+            . Der Browser zieht Padding und Border vom verfügbaren Platz ab, statt sie aufzuaddieren - die Box
+            bleibt exakt 200px breit, der Content-Bereich schrumpft entsprechend auf 150px.
+        </p>
+        <p><strong>NACHBAU-ÜBUNG</strong></p>
+        <p>
+            Erstelle zwei Boxen mit identischem CSS bis auf box-sizing (eine content-box, eine border-box),
+            beide mit width: 200px, padding 20px, border 5px solid. Miss beide mit den Etnwicklertools nach 
+            - die eine ist 250px breit, die andere genau 200px. Viele Entwickler setzen deshalb global * {box-sizing: border-box},
+            damit width immer die tatsächliche Endbreite meint.
+        </p>
+        <div class="box4">
+            HALLO WELT 4 - Nachbauübung content-box
+        </div>
+        <div class="box5">
+            HALLO WELT 5 - Nachbauübung border-box
+        </div>
+        <h2>Margin Collapsing (Randüberlappung)</h2>
+        <p>
+            Eine CSS-Eigenheit, die oft für Verwirrung sorg: Stehen zwei Elemente
+            <strong>vertikal</strong> übereinander (block-Elemente im normalen Textfluss)
+            und hat das untere Element einen margin-top, das obere Element einen margin-bottom, werden diese
+            Ränder <strong>nicht addiert</strong> - es gilt nur der <strong>grössere</strong> der beiden Werte.
+        </p>
+        <p class="oben">
+            ERSTER ABSATZ (margin bottom 40px)
+        </p>
+        <p class="unten">
+            ZWEITER ABSATZ (margin top 25px)
+        </p>
+        <p>
+            Man könnte einen Abstand von 40 + 25 = 65px zwischen den Absätzen erwarten.
+            Tatsächlich beträgt der Abstand aber nur <strong>40px</strong> - der grössere der beiden
+            Werte gewinnt, der kleinere wird "verschluckt".
+        </p>
+        <p>
+            <strong>WANN COLLAPST DER MARGIN NICHT</strong>
+        </p>
+        <p>
+            Margin Collapsing passiert nur bei vertikalen Margins im normalen Fluss.
+            Es trifft <strong>nicht</strong> auf bei: 
+            <ul>
+                <li>horizontalen Margins</li>
+                <li>Elementen in einem displa: fle- oder grid-Container, oder</li>
+                <li>wenn Padding/Border zwischen den beiden Margins liegt (dann berühren sie sich gar nicht erst)</li>
+            </ul>
+        </p>
+        <p>
+            <strong>NACHBAUÜBUNG</strong>
+        </p>
+        <p>
+            Baue das Beispiel oben nach und miss den Abstand zwischen den Absätzen in den Entwicklertools
+            nach (er wird 40px sein, nicht 65px). Setze danach beim umschliessenden body testweise
+            display: flex; und flex-direction: column; - jetzt beträgt der Abstand tatsächlich 65px, weil das
+            Collapsing in Flex-Containern nicht mehr greift.
+            </body>
+        </p>
+
+    </body>
+</html>
