@@ -36,39 +36,33 @@
     flex-direction: column;
 }
 
-.container4 {
+.container4, .container5, .container6, .container7, .container8, .container9 {
+    background: #d0e4f7;
     display: flex;
     flex-direction: row;
+}
+
+.container4 {
     justify-content: center;
 }
 
 .container5 {
-    display: flex;
-    flex-direction: row;
     justify-content: flex-start;
 }
 
 .container6 {
-    display: flex;
-    flex-direction: row;
     justify-content: flex-end;
 }
 
 .container7 {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
 .container8 {
-    display: flex;
-    flex-direction: row;
     justify-content: space-around;
 }
 
 .container9 {
-    display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
 }
 
