@@ -286,9 +286,54 @@
             </p>
             <h2>flex-wrap & gap</h2>
             <p class="normal">
-                
+                Standardmässig zwingt Flexbox <strong>alle</strong> items in eine einzige Zeile - notfalls
+                werden sie dafür schmaler gequetscht. Mit <strong>flex-wrap</strong> dürfen Items stattdessen
+                in die nächste Zeile umbrechen, sobald der Platz nicht mehr reicht.
             </p>
-
+            <p class="normal">
+                FLEX-WRAP - 5 Items, Container zu schmal für alle in einer Zeile. Vergrössere/Verkleinere das
+                Browserfenster, um den Effekt zu sehen.
+            </p>
+            <div class="container14">
+                <div class="item1var4">
+                    ITEM 1
+                </div>
+                <div class="item2var4">
+                    ITEM 2
+                </div>
+                <div class="item3var4">
+                    ITEM 3
+                </div>
+                <div class="item1var4">
+                    ITEM 4
+                </div>
+                <div class="item2var4">
+                    ITEM 5
+                </div>
+            </div>
+            <h2>flex-grow, flex-shrink & flex-basis</h2>
+            <p class="normal">
+                Diese drei Eigenschaften werden nicht am Container, sondern an den <strong>einzelnen
+                    Items</strong> gesetzt und steuern, wie sie sich zueinander verhalten, wenn Platz
+                    übrig bleibt oder fehlt.
+            </p>
+            <p class="normal">
+                <strong>FLEX-GROW - Verhältnis 1:2:1 - Item 2 erhält doppelt so viel vom freien Platz</strong>
+            </p>
+            <div class="container15">
+                <div class="item1var5">
+                    Item 1 - grow: 1
+                </div>
+                <div class="item2var5">
+                    Item 2 - grow: 2
+                </div>
+                <div class="item3var5">
+                    Item 3 - grow: 1
+                </div>
+            </div>
+            <p class="normal">
+                <strong>Häufige Kurzschreibweise:</strong> .item {flex: 1;} - Kurzform für: grow 1 shrink:1 basis:0
+            </p>
         </body>
     </head>
 </html>

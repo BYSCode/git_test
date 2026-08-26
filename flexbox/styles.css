@@ -143,3 +143,51 @@
 .item3var3 {
     background: #fbfd94;
 }
+
+.container14 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px /*Abstand zwischen Items*/
+}
+
+.item1var4, .item2var4, .item3var4 {
+    padding: 20px;
+    border: 2px solid #1b2a4a;
+    width: 200px;
+}
+
+.item1var4 {
+    background: #76e972;
+}
+
+.item2var4 {
+    background: #a9cdee;
+}
+
+.item3var4 {
+    background: #fbfd94;
+}
+
+.container15 {
+    display: flex;
+}
+
+.item1var5, .item2var5, .item3var5 {
+    padding: 20px;
+    border: 2px solid #1b2a4a;    
+}
+
+.item1var5 {
+    background: #76e972;
+    flex-grow: 1    
+}
+
+.item2var5 {
+    background: #a9cdee;
+    flex-grow: 2    
+}
+
+.item3var5 {
+    background: #fbfd94;
+    flex-grow: 1
+}
