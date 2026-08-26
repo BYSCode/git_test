@@ -191,3 +191,115 @@
     background: #fbfd94;
     flex-grow: 1
 }
+
+.container16 {
+    display: flex;
+    width: 180px;
+}
+
+.item1var6, .item2var6, .item3var6 {
+    flex-basis: 80px;
+    flex-shrink: 1;
+    padding: 20px;
+    border: 2px solid #1b2a4a;
+}
+
+.item1var6 {
+ background: #76e972;
+}
+
+.item2var6 {
+    background: #a9cdee;
+}
+
+.item3var6 {
+    background: #fbfd94;
+}
+
+.item1var7, .item3var7 {
+    flex-basis: 80px;
+    flex-shrink: 1;
+    padding: 20px;
+    border: 2px solid #1b2a4a;
+}
+
+.item1var7 {
+ background: #76e972;
+}
+
+.item2var7 {
+    flex-basis: 80px;
+    flex-shrink: 2;
+    background: #a9cdee;
+    border: 2px solid #1b2a4a;
+
+}
+
+.item3var7 {
+    background: #fbfd94;
+}
+
+.container17 {
+    display: flex;
+}
+
+.item1var8, .item2var8, .item3var8 {
+    flex-basis: auto;   /*STANDARD*/
+    padding: 20px;
+    border: 2px solid #1b2a4a;
+}
+
+.item1var8 {
+    background: #76e972;
+}
+
+.item2var8 {
+    background: #a9cdee;
+}
+
+.item3var8 {
+    background: #fbfd94;
+}
+
+.item1var9, .item2var9, .item3var9 {
+    flex-basis: 120px;
+    padding: 20px;
+    border: 2px solid #1b2a4a; 
+}
+
+.item1var9 {
+    background: #76e972;
+}
+
+.item2var9 {
+    background: #a9cdee;
+}
+
+.item3var9 {
+    background: #fbfd94;
+}
+
+/*NACHBAUPROJEKT NAVIGATIONSLEISTE*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #dcdfe4;
+}
+
+.navbar .links {    /*Descendant*/
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.logo, .link { /*Grouping*/
+    font-weight: bold;
+}
+
+.link.btn { /*Chaining*/
+    background: #1b2a4a;
+    color: white;
+    padding: 8px 16px;
+}

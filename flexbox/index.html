@@ -334,6 +334,134 @@
             <p class="normal">
                 <strong>Häufige Kurzschreibweise:</strong> .item {flex: 1;} - Kurzform für: grow 1 shrink:1 basis:0
             </p>
+            <h2>flex-shrink: Schrumpfen bei Platzmangel</h2>
+            <p class="normal">
+                flex-shrink ist das Gegenstück zu flex-grow. Sind die Items zusammen <strong>breiter</strong> als der Container, beschreibt
+                flex-shrink, wie stark jedes Item im Verhältnis zu den anderen schrumpft, damit am Ende wieder alles hineinpasst.
+            </p>
+            <p class="normal">
+                flex-shrink: 1 auf allen Items - Basis 80px, container 180px, Ergebnis: je 60px.
+            </p>
+            <div class="container16">
+                <div class="item1var6">
+                    ITEM 1 - flex-shrink: 1;
+                </div>
+                <div class="item2var6">
+                    ITEM 2 - flex-shrink: 1,
+                </div>
+                <div class="item3var6">
+                    ITEM 3 - flex-shrink: 1
+                </div>
+            </div>
+            <p class="normal">
+                Drei Items mit je 80px Basisgrösse (zusammen 240px) sollen in einen 180px breiten Container - ein Fehlbetrag von 60px.
+                Mit gleichem flex-shrink teilen sich alle drei Items diesen Fehlbetrag gleichmässig: je 20px weniger, macht 60px pro Item.
+            </p>
+            <p class="normal">
+                <strong>CSS - ein Item schrumpft doppelt so stark:</strong> flex-shrink: 1 / 2 / 1 - Item 2 schrumpft doppelt so stark auf 50px.
+            </p>
+             <div class="container16">
+                <div class="item1var7">
+                    ITEM 1 - flex-shrink: 1;
+                </div>
+                <div class="item2var7">
+                    ITEM 2 - flex-shrink: 2,
+                </div>
+                <div class="item3var7">
+                    ITEM 3 - flex-shrink: 1
+                </div>
+            </div>
+            <p class="normal">
+                Bei gleicher Basisgrösse verteilt sich der Fehlbetrag im Verhältnis der flex-shrink-Werte: Item 2 mit 2 gibt doppelt
+                so viel ab wie Item 1 und 3 mit flex-shrink: 1 - es landet bei 50px, die äusseren je bei 65px (65+50+65 = 180px).
+            </p>
+            <p class="normal">
+                <strong>WICHTIG - DER STANDARDWERT:</strong> flex-shrink steht standardmässig bereits auf 1 - <strong>ohne</strong> dass 
+                du es setzt! Das ist der Grund, warum Flex-Items in der Praxis oft ganz von allein schrumpfen, sobald der Platz eng wird. 
+                Willst Du das verhindern, setze explizit flex-shrink: 0; - das Item behält dann immer seine Basisgrösse, auch wenn es dafür
+                über den Container hinausragt oder andere Items stärker gestaucht werden.
+            </p>
+            <h2>flex-basis: Die Ausgangsgrösse</h2>
+            <p class="normal">
+                flex-basis legt fest, wie breit (bzw. bei column: wie hoch) ein Item <strong>ursprünglich</strong> ist - also bevor flex-grow
+                etwas hinzufügt oder flex-shrink etwas wegnimmt. Der Standardwert ist auto: Die Grösse richtet sich dann nach width (falls gesetzt)
+                oder sonst nach dem <strong>Inhalt</strong> des Items.
+            </p>
+            <p class="normal">
+                <strong>CSS - auto: Grösse richtet sich nach dem Inhalt: </strong> flex-basis: auto - jedes Item so breit wie sein Inhalt verlangt.
+            </p>
+            <div class="container17">
+                <div class="item1var8">
+                    ITEM 1 - flex-basis: auto
+                    -- Will heissen, wenn Item 1 wegen dem Inhalt mehr Platz braucht, dann erhält es diesen.
+                </div>
+                <div class="item2var8">
+                    ITEM 2 - flex-basis: auto
+                </div>
+                <div class="item3var8">
+                    ITEM 3 - flex-basis: auto
+                </div>
+            </div>
+            <p class="normal">
+                <strong>CSS - feste Ausgangsgrösse für alle Items:</strong> flex-basis: 120px - alle Items gleich breit, unabhängig vom Inhalt.
+            </p>
+            <div class="container17">
+                <div class="item1var9">
+                    ITEM 1 - flex-basis: 120px (fix)
+                </div>
+                <div class="item2var9">
+                    ITEM 2 - flex-basis: 120px (fix)
+                </div>
+                <div class="item3var9">
+                    ITEM 3 - flex-basis: 120px (fix)
+                </div>
+            </div>
+            <p class="normal">
+                Mit einem festen flex-basis-Wert ignoriert der Browser die tatsächliche Textlänge und erzwingt
+                für alle Items dieselbe Ausgangsbreite - das Ergebnis wirkt wie width, funktioniert aber nur auf der Hauptachse
+                und wird von grow/shrink noch verändert, falls diese gesetzt sind.
+            </p>
+            <p class="normal">
+                <strong>Bezug zum Box-Model-Guide:</strong> flex-basis bestimmt nur die Grösse auf der Hauptachse. Padding und Border
+                eines Items kommen bei content-box weiterhin <strong>zusätzlich</strong> dazu - mit box-sizing: border-box bleibt die flex-basis
+                -Grösse dagegen die tatsächliche Endgrösse inklusive Padding/Border.
+            </p>
+            <h2>Zusammenspiel - die flex-Kurzschreibweise</h2>
+            <p class="normal">
+                Alle drei Eigenschaften lassen sich in einer Zeile kombinieren: flex grow - shrink - basis. Das ist auch der Grund,
+                warum diese drei Eigenschaften gemeinsam in einem Kapitel stehen - sie werden in der Praxis fast immer zusammen gedacht.
+            </p>
+            <h2>Nachbau-Projekt: Navigationsleiste</h2>
+            <p class="normal">
+                Dieses folgende Beispiel verbindet Flexbox mit den Konzepten aus den vorherigen Guides: Box Model (Padding/Border), Cascade (Spezifität
+                von Klassen) und Selektoren (Grouping, Chaining, Descendant).
+            </p>
+            <nav class="navbar">
+                <span class="logo">
+                    Meine Seite
+                </span>
+                <div class="links">
+                    <a class="link">
+                        Start
+                    </a>
+                    <a class="link">
+                        Über uns
+                    </a>
+                    <a class="link btn">
+                        Kontakt
+                    </a>
+                </div>
+            </nav>
+            <p class="normal">
+                Zwei verschachtelte Flex-Container sind hier am Werk: <strong>.navbar</strong> selbst ist ein Flex-Container mit justify-content: space-between,
+                der Logo und Link-Gruppe an die Ränder schiebt. <strong>.navbar .links</strong> ist <strong>gleichzeitig</strong> ein eigener, verschachtelter
+                Flex-Container, der seine eigenen Kinder (die Links) mit gap nebeneinander anordnet. Flex-Container können beliebig tief verschachtelt werden -
+                 jeder Container kümmert sich dann nur um seine <strong>direkten</strong> Kinder
+            </p>
+            <p class="normal">
+                Experimentiere: Ändere die justify-content am .navbar auf flex-end und beobachte, wie beide Gruppen zusammenrücken. Setze am .navbar zusätzlich
+                flex-wrap: wrap und verkleinere das Browserfenster stark - die Links brechen dann sauber in eine zweite Zeile um.
+            </p>
         </body>
     </head>
 </html>
