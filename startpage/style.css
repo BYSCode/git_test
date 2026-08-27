@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.tabelle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid black;
+}
+
+.zeile {
+    display: flex;
+    border-bottom: 1px solid black;
+
+}
+
+.zeile:not(.kopf) {
+    background: white;
+    border-bottom: 1px solid black;
+}
+
+.kopf {
+    background: rgb(71, 37, 37);
+    color: white;
+    font-weight: bold;
+}
+
+.zelle {
+    font-size: 14px;
+    align-items: center;
+    padding: 10px;
+    border-left: 1px solid black;
+}
+
+.zeile:not(.kopf):nth-child(even) {
+    background:rgb(235, 164, 164)
+}
+
+.tabelle .sp1 {flex: 30 1 0}
+.tabelle .sp2 {flex: 50 1 0}
+.tabelle .sp3 {flex: 50 1 0}
