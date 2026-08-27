@@ -1,0 +1,82 @@
+
+* {
+    box-sizing: content-box;
+}
+
+.container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container2 {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.container3 {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.container4 {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container5 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container6 {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.container7 {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.container8 {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.item1, .item2, .item3 {
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 2px;
+    width: 80px;
+    height: 20px;    
+}
+
+.item1 {
+    background: rgb(245, 134, 134);
+
+}
+
+.item2 {
+    background: rgb(137, 137, 238);
+}
+
+.item3 {
+    background: rgb(247, 247, 135);
+}
+
+.container, .container2, .container3, .container4,
+.container5, .container6, .container7, .container8 {
+    display: flex;
+    background: rgb(141, 248, 141);
+    height: 300px;
+}
