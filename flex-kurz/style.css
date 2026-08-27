@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.tabelle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    border: 1px solid black;
+    border-bottom: 30px;
+}
+
+.zeile {                   
+    display: flex;
+    border-bottom: 1px solid black;          /*ZEILEN sollen untereinander stehen*/
+}
+
+.zelle {
+    display: flex;          /*Auch Zellen sollen untereinander stehen.*/
+    padding: 8px 10px;      /*In jeder ZELLE: Abstand, oben/unten 8px, links/rechts 10px*/
+    align-items: center;    /*Text in der ZELLE wird vertikal (oben/unten) zentriert.*/
+}
+
+.zeile.kopf {               /*Kopfzeile durch Chaining - ohne Abstand*/
+    background: rgb(14, 0, 14);
+    color: white;
+    font-weight: 800;
+}
+
+.zeile:not(.kopf):nth-child(even) { /*Solange es nicht Klasse Kopf betrifft und davon jedes gerade Kind....*/
+    background: rgb(212, 187, 212); /*mache den Hintergrund andersfarbig --> gibt der Tabelle das Zebra-Muster*/
+}
+
+/*Jetzt fehlt noch die schöne Tabellenausrichtung mit den Flex-Eigenschaften*/
+/*Diese Ausrichtung geschieht im Container .tabelle sowie in der Klasse .sp1 / sp2 und sp3 - Kein Abstand = Grouping*/
+.tabelle .sp1 {flex: 40 1 0}
+.tabelle .sp2 {flex: 60 1 0}
+.tabelle .sp3 {flex: 120 1 0}

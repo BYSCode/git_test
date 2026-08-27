@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>tabelle zur flex-kurzschreibweise</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1>Die Flex Kurzschreibweise</h1>
+        <p class="normal">
+            Alle drei flex-Eigenschaften lassen sich in einer Zeile kombinieren: flex: grow shrink basis. Das ist auch der Grund, warum
+            diese drei Eigenschaften im Guide gemeinsam in einem Kapitel stehen - sie werden in der Praxis fast immer zusammen gedacht.
+        </p>
+        <div class="tabelle">
+            <div class="zeile kopf">
+                <div class="zelle sp1">Schreibweise</div>
+                <div class="zelle sp2">Entspricht:</div>
+                <div class="zelle sp3">Bedeutung</div>
+            </div>
+
+            <div class="zeile">
+                <div class="zelle sp1">(nichts gesetzt)</div>
+                <div class="zelle sp2">flex: 0 1 auto</div>
+                <div class="zelle sp3">Standard: nicht wachsen, aber schrumpfen, Grösse nach Inhalt</div>
+            </div>
+
+            <div class="zeile">
+                <div class="zelle sp1">flex: 1</div>
+                <div class="zelle sp2">flex 1 1 0</div>
+                <div class="zelle sp3">gleichmässig wachsen & schrumpfen, Basis ignoriert</div>
+            </div>
+
+            <div class="zeile">
+                <div class="zelle sp1">flex: auto</div>
+                <div class="zelle sp2">flex: 1 1 auto</div>
+                <div class="zelle sp3">wachsen & schrumpfen, aber Inhalt als Basis respektieren</div>
+            </div>
+
+            <div class="zeile">
+                <div class="zelle sp1">flex: none</div>
+                <div class="zelle sp2">flex: 0 0 auto</div>
+                <div class="zelle sp3">starr - wächst und schrumpft nie</div>
+            </div>
+        </div>
+
+        <p class="normal">
+            Besonders flex: none ist nützlich für Elemente, die immer ihre feste Grösse behalten sollen (z.B. ein Logo oder Icon in einer 
+            Navigationsliste), während daneben liegende Elemente mit flex: 1 den restlichen Platz flexibel ausfüllen.
+        </p>
+        <p class="normal">
+            <strong>CSS-Beispiel</strong>
+        </p>
+        <p class="normal">
+            .logo {flex: none} --> bleibt starr bei 60px
+        </p>
+        <p class="normal">
+            .logo {width: 60px}
+        </p>
+        <p class="normal">
+            .logo {flex: 1} --> füllt den Rest
+        </p>
+    </body>
+</html>
