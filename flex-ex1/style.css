@@ -1,0 +1,25 @@
+*box-sizing {
+    border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid darkblue;
+    background: rgb(111, 111, 243);
+    height: 400px;
+    width: 500px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    text-align: center;             /*TEXT-ALIGN*/
+    background: rgb(226, 131, 131);
+    border: 5px solid rgb(90, 15, 15);
+    height: 100px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 20px;
+}
