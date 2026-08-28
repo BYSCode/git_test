@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;1,900&display=swap');
+body {
+    margin: 0;
+    background: #eee;
+    font-family: Besley, serif;
+}
+
+/*ZUERST DER CONTAINER*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 0 8px rgba(0,0,0,1);
+}
+
+/*Der Header wird damit in zwei Seiten geteilt.*/
+/*Im Container Header gibt es dann wieder zwei Container left und right*/
+.left, .right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/*Danach von links her:*/
+/*Das Logo*/
+.logo {
+    font-weight: 900;
+    font-size: 32px;
+    font-style: italic;
+    color: rebeccapurple;
+}
+
+/*Die Links, die im Contaner der ul-Liste sind*/
+ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+    list-style-type: none;
+}
+
+a {
+   text-decoration: none;
+   color: rebeccapurple;
+}
+
+/*Dann der Button*/
+button {
+    border: none;
+    border-radius: 8px;
+    background: rebeccapurple;
+    color: white;
+    padding: 8px 24px;
+}
+
+/*Und schliesslich das profile image*/
+.profile-image {
+    background: rebeccapurple;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,.5);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
