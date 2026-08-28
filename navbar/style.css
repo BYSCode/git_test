@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;  /*bringt schon einmal alles auf eine Reihe - Standard: flex-direction: row*/
+    justify-content: space-between; /*trennt die items - hier sind die items  ".logo" und ".links" - deshalb ist LOGO links, und die LINKS rechts auf der Seite*/
+    align-items: center; /*Zentrierung der Items an der Vertikalachse (in der Höhe)*/
+    padding: 16px 24px; /*Abstand zu Border oben/unten 16px - links/recht 24px*/
+    border-bottom: 1px solid black; /*Macht Linie unten*/
+}
+
+.navbar .links {  /*Descendant (kein Abstand) -> spricht alle .links innerhalb .navbar an*/
+    display: flex; /*aktiviert flexbox, Links sind etwas mehr zusammengerückt.*/
+    gap: 20px;  /*schafft raum zwischen den .links*/
+    align-items: center; /* Zentrierung der Items an der Vertikalachse, d.h. in der Höhe*/
+}
+
+.logo, .links { /*Grouping, spricht alle .logo und .links an zur Regelung der Gemeinsamkeiten*/
+    font-weight: bold;
+}
+
+.link.btn { /*Chaining - spricht alle .link an, die auch .btn enthalten (UND)*/
+    background: grey;
+    color: white;
+    padding: 8px 16px;
+}
